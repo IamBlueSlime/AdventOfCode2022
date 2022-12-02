@@ -17,13 +17,13 @@ const Shape = {
   ROCK: 1,
   PAPER: 2,
   CISSORS: 3,
-};
+} as const;
 
 const Outcome = {
   LOSE: 0,
   DRAW: 3,
   WIN: 6,
-};
+} as const;
 
 const getShapeFromInputLetter = (letter: InputLetter): Shape =>
   match(letter)
