@@ -1,4 +1,3 @@
-import { function as fp, readonlyArray as RA } from 'fp-ts';
 import { match } from 'ts-pattern';
 
 import { impossible } from './lib';
@@ -72,41 +71,32 @@ day(2, (input, part) => {
   const rounds = input.map((line) => line.split(' ') as InputRound);
 
   part(1, () => {
-    const roundsAsShape = fp.pipe(
-      rounds,
-      RA.map(
-        ([enemyLetter, playerLetter]) =>
-          [
-            getShapeFromInputLetter(enemyLetter),
-            getShapeFromInputLetter(playerLetter),
-          ] as ShapeRound,
-      ),
+    const roundsAsShape = rounds.map(
+      ([enemyLetter, playerLetter]) =>
+        [
+          getShapeFromInputLetter(enemyLetter),
+          getShapeFromInputLetter(playerLetter),
+        ] as ShapeRound,
     );
 
-    return fp.pipe(
-      roundsAsShape,
-      RA.reduce(0, (acc, round) => acc + round[1] + getOutcomeForRound(round)),
+    return roundsAsShape.reduce(
+      (acc, round) => acc + round[1] + getOutcomeForRound(round),
+      0,
     );
   });
 
   part(2, () => {
-    const roundsAsOutcome = fp.pipe(
-      rounds,
-      RA.map(
-        ([enemyLetter, outcomeLetter]) =>
-          [
-            getShapeFromInputLetter(enemyLetter),
-            getOutcomeFromInputLetter(outcomeLetter),
-          ] as OutcomeRound,
-      ),
+    const roundsAsOutcome = rounds.map(
+      ([enemyLetter, outcomeLetter]) =>
+        [
+          getShapeFromInputLetter(enemyLetter),
+          getOutcomeFromInputLetter(outcomeLetter),
+        ] as OutcomeRound,
     );
 
-    return fp.pipe(
-      roundsAsOutcome,
-      RA.reduce(0, (acc, round) => {
-        const shapeToPlay = getShapeToPlayForOutcome(round);
-        return acc + shapeToPlay + round[1];
-      }),
-    );
+    return roundsAsOutcome.reduce((acc, round) => {
+      const shapeToPlay = getShapeToPlayForOutcome(round);
+      return acc + shapeToPlay + round[1];
+    }, 0);
   });
 });
