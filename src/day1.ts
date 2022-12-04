@@ -1,4 +1,4 @@
-import { day } from './wrapper';
+import { day } from './lib';
 
 day(1, (input, part) => {
   const inventories = input.reduce((acc, line) => {

@@ -1,7 +1,7 @@
 import { match } from 'ts-pattern';
 
-import { impossible } from './lib';
-import { day } from './wrapper';
+import { day } from './lib';
+import { impossible } from './utils';
 
 type InputLetter = 'A' | 'B' | 'C' | 'X' | 'Y' | 'Z';
 type InputRound = [InputLetter, InputLetter];

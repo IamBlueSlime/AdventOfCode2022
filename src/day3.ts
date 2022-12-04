@@ -1,5 +1,5 @@
-import { chunkArray } from './lib';
-import { day } from './wrapper';
+import { day } from './lib';
+import { chunkArray } from './utils';
 
 const LETTER_PRIORITIES =
   'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
