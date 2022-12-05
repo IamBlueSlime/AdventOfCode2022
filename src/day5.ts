@@ -41,11 +41,8 @@ const applyMoveToState = (
   const toStack = newState[to]!;
   const fromStack = newState[from]!;
 
-  if (fast) {
-    toStack.push(...fromStack.splice(fromStack.length - nb));
-  } else {
-    for (let i = 0; i < nb; i += 1) toStack.push(fromStack.pop()!);
-  }
+  if (fast) toStack.push(...fromStack.splice(fromStack.length - nb));
+  else Array.from({ length: nb }, () => toStack.push(fromStack.pop()!));
 
   return newState;
 };

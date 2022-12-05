@@ -1,4 +1,4 @@
-export const impossible = () => {
+export const impossible = (): never => {
   throw new Error('Impossible');
 };
 

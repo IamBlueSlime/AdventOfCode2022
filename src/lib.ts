@@ -46,5 +46,5 @@ export const day = (
 ) => {
   const inputPath = path.join(__dirname, '..', 'inputs', `day${nb}.txt`);
   const input = fs.readFileSync(inputPath, 'utf8').split('\n');
-  handler(input, createPartFunction(nb));
+  return handler(input, createPartFunction(nb));
 };
