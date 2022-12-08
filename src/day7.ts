@@ -5,6 +5,7 @@ type NodeAttributes = {
   name: string;
   size: number;
 };
+
 type DirectoryNode = NodeAttributes & {
   type: 'directory';
   children: Node[];
