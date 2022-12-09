@@ -13,5 +13,8 @@ export const chunkArray = <T>(
 export const arrayMax = (array: readonly number[]): number =>
   array.reduce((prev, nb) => (nb > prev ? nb : prev), 0);
 
-export const arrayReverse = (array: readonly number[]): readonly number[] =>
+export const arrayMin = (array: readonly number[]): number =>
+  array.reduce((prev, nb) => (nb < prev ? nb : prev), 0);
+
+export const arrayReverse = <T>(array: readonly T[]): readonly T[] =>
   Array.from({ length: array.length }, (_, i) => array[array.length - 1 - i]!);
