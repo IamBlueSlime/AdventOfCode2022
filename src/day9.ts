@@ -22,6 +22,7 @@ const getNewPositionFromDelta = (
   pos: Position,
   dx: number,
   dy: number,
+  // eslint-disable-next-line sonarjs/cognitive-complexity
 ): Position => {
   if (Math.abs(dx) <= 1 && Math.abs(dy) <= 1) return pos;
   else if (dx === 0 && dy > 0) return [pos[0], pos[1] + dy - 1];
