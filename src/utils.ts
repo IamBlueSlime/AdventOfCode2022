@@ -1,3 +1,5 @@
+export type Readonly2DArray<T> = readonly (readonly T[])[];
+
 export const impossible = (): never => {
   throw new Error('Impossible');
 };
@@ -14,7 +16,7 @@ export const arrayMax = (array: readonly number[]): number =>
   array.reduce((prev, nb) => (nb > prev ? nb : prev), 0);
 
 export const arrayMin = (array: readonly number[]): number =>
-  array.reduce((prev, nb) => (nb < prev ? nb : prev), 0);
+  array.reduce((prev, nb) => (nb < prev ? nb : prev), Number.MAX_SAFE_INTEGER);
 
 export const arrayReverse = <T>(array: readonly T[]): readonly T[] =>
   Array.from({ length: array.length }, (_, i) => array[array.length - 1 - i]!);
