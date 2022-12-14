@@ -111,10 +111,10 @@ const runSimulation = (
 ): number => {
   const grid = createGrid(rockWalls, infiniteGround);
 
-  while (simulateSand(grid)) {
-    if (grid.array[grid.fixedSandStart[1]]![grid.fixedSandStart[0]] === 'o')
-      break;
-  }
+  while (
+    simulateSand(grid) &&
+    grid.array[grid.fixedSandStart[1]]![grid.fixedSandStart[0]] !== 'o'
+  );
 
   return grid.sandCount;
 };
